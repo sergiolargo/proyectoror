@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="/computacion">Inicio</a></li>
+        <li><a href="/alumnos">Alumnos</a></li>
+        <li><a href="#section2">Materias</a></li>
+        <li><a href="#section3">Calificaciones</a></li>
+        <li><a href="#section3">Couotas</a></li>
+      </ul><br>      
+    </div>
+    <div class="col-sm-9">
+      <h4><small>Cosas de Alumnos</small></h4>
+      <hr>
+      <h2>Alumnos</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Jueves 16 Junio 2016</h5>
+      <%= link_to 'Nuevo Alumno', '/alumnos/new',class:"btn btn-primary" %>
+      <table class="table">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido Paterno</th>
+          <th>Apellido Materno</th>
+          <th>Fecha Nacimiento</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+          <th>Email</th>
+        </tr>
+        <%@alumno.each do |a|%>
+          <tr>
+            <td><%=a.nombre_a%></td>
+            <td><%=a.app%></td>
+            <td> <%=a.apm%></td>
+            <td><%=a.telefono%></td>
+            <td><%= link_to 'Mostrar', alumno_path(a), class:"btn btn-info"%></td>
+            <td><%= link_to 'Editar', edit_alumno_path(a), class:"btn btn-warning"%></td>
+            <td><%= link_to 'Eliminar', alumno_path(a), method: :delete, data: { confirm: '¿Estas seguro?'},class:"btn btn-danger" %>            
+          </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>

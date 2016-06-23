@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="/computacion">Inicio</a></li>
+        <li><a href="/alumnos">Alumnos</a></li>
+        <li><a href="#section2">Materias</a></li>
+        <li><a href="#section3">Calificaciones</a></li>
+        <li><a href="#section3">Couotas</a></li>
+      </ul><br>      
+    </div>
+
+    <div class="col-sm-9">
+	     <h4><small>Cosas de Alumnos</small></h4>
+	     <hr>
+	     <h2>Alumnos</h2>
+	     <h5><span class="glyphicon glyphicon-time"></span> Jueves 16 Junio 2016</h5>
+
+		<div class="form-group">
+			<%= form_for @alumno do |f| %>
+				<% if @alumno.errors.any? %>
+			<div id="error_explanation">
+			<h2><%= pluralize(@alumno.errors.count, "error") %> prohibited
+		      	this alumno from being saved:</h2>
+				<ul><% @alumno.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+				</ul>
+			</div>
+			<% end %>
+			<div class="list-group-item list-group-item-info col-sm-5">
+				<p>
+					<%= f.label :Nombre %><br>
+					<%= f.text_field :nombre_a %>
+				</p>
+				<p>
+					<%= f.label :Apellido_paterno %><br>
+					<%= f.text_field :app %>
+				</p>
+				<p>
+					<%= f.label :Apellido_Materno %><br>
+					<%= f.text_field :apm %>
+				</p>
+				<p>
+					<%= f.label :Dirección %><br>
+					<%= f.text_field :direccion %>
+				</p>
+			</div>
+			<div class="list-group-item list-group-item-info col-sm-5">
+				<p>
+					<%= f.label :Fecha_Nacimiento, class:"date"%><br>
+					<%= f.date_field :fecha_nac %>
+				</p>
+				<p>
+					<%= f.label :Telefono %><br>
+					<%= f.text_field :telefono %>
+				</p>
+				<p>
+					<%= f.label :Email %><br>
+					<%= f.email_field :email %>
+				</p>
+				<p>
+					<%= f.submit 'Guardar', class:"btn btn-success"%>
+					<a href="/alumnos" class="btn btn-warning">Cancelar</a>
+				</p>
+			</div>
+			<% end %>
+		</div>
+    </div>
+  </div>
+</div>
